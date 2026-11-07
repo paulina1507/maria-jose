@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "slug": "xv-maria-jose-2026",
+  "template": "xv-arco-princess",
+  "tipo_evento": "xv",
+  "paquete": "armonia",
+  "evento": {
+    "fecha": "2026-12-19T16:00:00",
+    "host": {
+      "nombre": "María José"
+    }
+  },
+  "meta": {
+    "title": "Mis XV Años | María José",
+    "description": "Acompáñanos a celebrar los XV años de María José Gómez Allende",
+    "lang": "es",
+    "favicon": "favicon.ico"
+  },
+  "logo": {
+    "type": "text",
+    "value": "Mis XV Años"
+  },
+  "media": {
+    "hero_background": "principal.jpeg",
+    "presentacion": "princesa.svg",
+    "vestimenta_icon": "9.svg",
+    "galeria": [
+      "1.jpeg",
+      "2.jpeg",
+      "3.jpeg",
+      "4.jpeg",
+      "5.jpeg",
+      "6.jpeg",
+      "7.jpeg"
+    ]
+  },
+  "audio": {
+    "enabled": true,
+    "src": "cancion.mp3",
+    "autoplay_on_open": true,
+    "loop": true,
+    "volume": 0.5,
+    "fade_in": true,
+    "icons": {
+      "play": "play.svg",
+      "pause": "pause.svg"
+    }
+  },
+  "opening": {
+    "enabled": true,
+    "phrase": {
+      "enabled": true,
+      "text": "Con mucha ilusión…",
+      "duration": 1400
+    },
+    "particles": {
+      "enabled": true,
+      "type": "sparkles",
+      "count": 14
+    },
+    "scroll_hint": {
+      "enabled": true,
+      "text": "Desliza para continuar"
+    }
+  },
+  "navbar": {
+    "enabled": true,
+    "logo": {
+      "use_global": true
+    },
+    "items": [
+      {
+        "id": "inicio",
+        "label": "Inicio",
+        "href": "#inicio"
+      },
+      {
+        "id": "ubicacion",
+        "label": "Lugar",
+        "href": "#ubicacion"
+      },
+      {
+        "id": "programa",
+        "label": "Programa",
+        "href": "#programa"
+      },
+      {
+        "id": "vestimenta",
+        "label": "Vestimenta",
+        "href": "#vestimenta"
+      },
+      {
+        "id": "galeria",
+        "label": "Galería",
+        "href": "#galeria"
+      },
+      {
+        "id": "rsvp",
+        "label": "Asistencia",
+        "href": "#rsvp"
+      }
+    ]
+  },
+  "hero": {
+    "enabled": true,
+    "names": {
+      "festejada": "XV Años María José Gómez Allende"
+    },
+    "countdown_labels": {
+      "dias": "Días",
+      "horas": "Horas",
+      "minutos": "Minutos",
+      "segundos": "Segundos"
+    }
+  },
+  "presentacion": {
+    "enabled": true,
+    "titulo": "Tengo el honor de invitarte a celebrar mis XV años",
+    "nombres": "MARÍA JOSÉ GÓMEZ ALLENDE",
+    "frase": "Con la bendición de Dios y en compañía de mis padres:",
+    "padres": {
+      "festejada": [
+        "José Luis Gómez Pérez",
+        "Xochitl Allende Cruz"
+      ]
+    },
+    "padrinos": [
+      "Arturo Gómez Pérez",
+      "Isela Cruz Zacarías"
+    ],
+    "texto_final": "Este día marca una nueva etapa en mi vida y me encantaría compartirlo contigo.",
+    "labels": {
+      "padres": "Mis papás",
+      "padrinos": "Mis padrinos"
+    }
+  },
+  "ubicacion": {
+    "enabled": true,
+    "titulo": "Fecha y Ubicación",
+    "lugares": [
+      {
+        "enabled": true,
+        "tipo": "Ceremonia Religiosa",
+        "hora": "04:00 PM",
+        "lugar": "Ex Convento de San Francisco",
+        "direccion": [
+          "Cvln. Tlaloc 1380, Ricardo Treviño,",
+          "74250 Atlixco, Puebla."
+        ],
+        "mapa": "https://www.google.com/maps/search/?api=1&query=Ex+Convento+de+San+Francisco+Cvln+Tlaloc+1380+Atlixco+Puebla"
+      },
+      {
+        "enabled": true,
+        "tipo": "Recepción",
+        "hora": "05:30 PM",
+        "lugar": "Salón Social La Martina",
+        "direccion": [
+          "A San Diego 21, San Diego Acapulco,",
+          "74365 Atlixco, Puebla."
+        ],
+        "mapa": "https://www.google.com/maps/search/?api=1&query=Salon+Social+La+Martina+A+San+Diego+21+Atlixco+Puebla"
+      }
+    ]
+  },
+  "programa": {
+    "enabled": true,
+    "titulo": "Programa del Evento",
+    "progress_steps": [
+      20,
+      40,
+      60,
+      80,
+      100
+    ],
+    "items": [
+      {
+        "hora": "04:00 PM",
+        "texto": "Ceremonia Religiosa",
+        "icono": "5.svg",
+        "lado": "left"
+      },
+      {
+        "hora": "05:30 PM",
+        "texto": "Recepción",
+        "icono": "6.svg",
+        "lado": "right"
+      },
+      {
+        "hora": "06:00 PM",
+        "texto": "Cena",
+        "icono": "7.svg",
+        "lado": "left"
+      },
+      {
+        "hora": "07:30 PM",
+        "texto": "Vals",
+        "icono": "8.svg",
+        "lado": "right"
+      }
+    ]
+  },
+  "vestimenta": {
+    "enabled": true,
+    "titulo": "Código de Vestimenta",
+    "formal": "VESTIMENTA LIBRE",
+    "labels": {
+      "mujeres": "",
+      "hombres": ""
+    },
+    "mujeres": "",
+    "hombres": "Puedes asistir con el atuendo de tu preferencia. Te pedimos evitar el color rojo."
+  },
+  "regalos": {
+    "enabled": false,
+    "titulo": "Sugerencia de Regalos",
+    "descripcion": "",
+    "items": []
+  },
+  "galeria": {
+    "enabled": true,
+    "titulo": "Galería"
+  },
+  "rsvp": {
+    "enabled": true,
+    "mode": "panel",
+    "telefono": "522441483572",
+    "mensaje_base": "Hola, confirmo mi asistencia a los XV años de María José.",
+    "fecha_limite": "2026-12-12",
+    "qr": {
+      "enabled": false
+    },
+    "titulo": "Confirmar asistencia",
+    "texto": "Por favor confirma tu asistencia.",
+    "nota": "Te agradeceremos confirmar tu asistencia antes del {{fecha_limite}}.",
+    "pase": {
+      "enabled": true,
+      "label": "Pase para"
+    },
+    "mesa": {
+      "enabled": false,
+      "label": "Mesa"
+    },
+    "botones": {
+      "si": "Sí, asistiré",
+      "no": "No podré asistir"
+    },
+    "final": {
+      "titulo": "¡Gracias por confirmar!",
+      "texto": "Hemos reservado estos lugares en su honor.",
+      "firma": "XV Años María José"
+    }
+  },
+  "editorial": {
+    "hero": {
+      "enabled": true,
+      "text": "Hoy celebro una nueva etapa en mi vida"
+    },
+    "presentacion": {
+      "enabled": true,
+      "text": "Gracias a quienes me han acompañado siempre"
+    },
+    "ubicacion": {
+      "enabled": true,
+      "text": "El lugar donde todo sucederá"
+    },
+    "programa": {
+      "enabled": true,
+      "text": "Cada momento tiene su magia"
+    },
+    "vestimenta": {
+      "enabled": true,
+      "text": "Una noche para celebrar y disfrutar"
+    },
+    "regalos": {
+      "enabled": false,
+      "text": ""
+    },
+    "galeria": {
+      "enabled": false,
+      "text": "Momentos que forman mi historia"
+    },
+    "rsvp": {
+      "enabled": true,
+      "text": "Acompáñame en este día especial"
+    }
+  },
+  "footer": {
+    "enabled": true,
+    "text": "Diseñado con amor por"
+  }
+}
