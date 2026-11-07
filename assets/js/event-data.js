@@ -428,14 +428,19 @@ fetch("assets/js/evento.json")
         }
       }
 
-      // INFORMACIÓN DE PASES
+
+      // ==========================================
+      // INFORMACIÓN DE PASES EN EL FORMULARIO
+      // ==========================================
+
       const passLabel = document.getElementById("rsvpPassLabel");
       const passValue = document.getElementById("rsvpPassValue");
 
       const tableLabel = document.getElementById("rsvpTableLabel");
       const tableValue = document.getElementById("rsvpTableValue");
 
-      if (rsvp.pase?.enabled !== false && passLabel && passValue) {
+      // PASE PARA
+      if (rsvp.pase?.enabled === true && passLabel && passValue) {
         passLabel.textContent = rsvp.pase.label || "Pase para";
 
         const pases =
@@ -450,9 +455,9 @@ fetch("assets/js/evento.json")
         passLabel?.closest(".rsvp-pass-item")?.remove();
       }
 
-      // INFORMACIÓN DE MESA
-      if (rsvp.mesa?.enabled !== false && tableLabel && tableValue) {
-        tableLabel.textContent = rsvp.mesa.label || "Mesa asignada";
+      // MESA ASIGNADA
+      if (rsvp.mesa?.enabled === true && tableLabel && tableValue) {
+        tableLabel.textContent = rsvp.mesa.label || "Mesa";
 
         const mesa =
           window.__INVITADO__?.mesa ??
@@ -465,16 +470,21 @@ fetch("assets/js/evento.json")
         tableLabel?.closest(".rsvp-pass-item")?.remove();
       }
 
-      // OCULTAR CONTENEDOR SI NO HAY PASES NI MESA
-      const passInfo = document.querySelector(".rsvp-pass-info");
+      // OCULTAR CONTENEDOR SI NO HAY INFORMACIÓN
+      const passInfo = document.querySelector("#rsvp-form .rsvp-pass-info");
 
-      if (
-        passInfo &&
-        rsvp.pase?.enabled === false &&
-        rsvp.mesa?.enabled === false
-      ) {
+      const hayPases =
+        rsvp.pase?.enabled === true &&
+        (window.__INVITADO__?.pases ?? rsvp.pase.cantidad) != null;
+
+      const hayMesa =
+        rsvp.mesa?.enabled === true &&
+        (window.__INVITADO__?.mesa ?? rsvp.mesa.numero) != null;
+
+      if (passInfo && !hayPases && !hayMesa) {
         passInfo.remove();
       }
+
 
       // CONFIGURAR PANTALLA FINAL
       const rsvpNames = document.getElementById("rsvp-names");

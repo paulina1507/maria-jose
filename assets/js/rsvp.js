@@ -42,34 +42,76 @@
       btnEnviar.textContent = "Confirmar por WhatsApp";
     }
 
+    // ==========================================
+    // MOSTRAR CONFIRMACIÓN FINAL
+    // ==========================================
+
     function showFinal(nombre) {
       formBox.classList.add("hidden");
       section.classList.add("completed");
 
-      const passLabel = document.getElementById("rsvpPassLabel");
-      const passValue = document.getElementById("rsvpPassValue");
-      const tableLabel = document.getElementById("rsvpTableLabel");
-      const tableValue = document.getElementById("rsvpTableValue");
+      // ELEMENTOS DE PASES EN LA PANTALLA FINAL
+      const passLabel = document.getElementById("rsvpFinalPassLabel");
+      const passValue = document.getElementById("rsvpFinalPassValue");
 
-      if (rsvp.pase?.enabled && invitado?.pases) {
-        if (passLabel) passLabel.textContent = rsvp.pase.label || "Pase para";
+      const tableLabel = document.getElementById("rsvpFinalTableLabel");
+      const tableValue = document.getElementById("rsvpFinalTableValue");
+
+      const finalPassInfo = document.querySelector(".rsvp-final-pass");
+
+      let mostrarInformacion = false;
+
+      // ==========================================
+      // PASE PARA
+      // ==========================================
+
+      if (rsvp.pase?.enabled === true && invitado?.pases != null) {
+        if (passLabel) {
+          passLabel.textContent = rsvp.pase.label || "Pase para";
+        }
+
         if (passValue) {
           passValue.textContent =
-            invitado.pases === 1 ? "1 persona" : `${invitado.pases} personas`;
+            invitado.pases === 1
+              ? "1 persona"
+              : `${invitado.pases} personas`;
         }
+
+        mostrarInformacion = true;
       } else {
         passLabel?.closest(".rsvp-pass-item")?.remove();
       }
 
-      if (rsvp.mesa?.enabled && invitado?.mesa) {
-        if (tableLabel) tableLabel.textContent = rsvp.mesa.label || "Mesa";
-        if (tableValue) tableValue.textContent = `Mesa ${invitado.mesa}`;
+      // ==========================================
+      // MESA ASIGNADA
+      // ==========================================
+
+      if (rsvp.mesa?.enabled === true && invitado?.mesa != null) {
+        if (tableLabel) {
+          tableLabel.textContent = rsvp.mesa.label || "Mesa";
+        }
+
+        if (tableValue) {
+          tableValue.textContent = `Mesa ${invitado.mesa}`;
+        }
+
+        mostrarInformacion = true;
       } else {
         tableLabel?.closest(".rsvp-pass-item")?.remove();
       }
 
+      // OCULTAR CONTENEDOR SI NO HAY DATOS
+      if (finalPassInfo && !mostrarInformacion) {
+        finalPassInfo.remove();
+      }
+
+      // ==========================================
+      // TEXTOS DE CONFIRMACIÓN
+      // ==========================================
+
       if (titleEl) {
-        titleEl.textContent = rsvp.final?.titulo || "¡Gracias por responder!";
+        titleEl.textContent =
+          rsvp.final?.titulo || "¡Gracias por responder!";
       }
 
       if (textEl) {
@@ -82,15 +124,21 @@
         namesEl.textContent = rsvp.final?.firma || "";
       }
 
+      // ACTUALIZAR NOMBRE DEL INVITADO
       document.querySelectorAll(".rsvp-guest-name").forEach((el) => {
         el.textContent = nombre;
       });
 
+      // DESPLAZAR A LA CONFIRMACIÓN
       finalBox.scrollIntoView({
         behavior: "smooth",
         block: "center"
       });
     }
+
+    // ==========================================
+    // ENVIAR CONFIRMACIÓN POR WHATSAPP
+    // ==========================================
 
     function enviarWhatsApp() {
       const nombre = inputNombre?.value?.trim();
@@ -131,8 +179,8 @@ Soy ${nombreLimpio}.
 Con mucha alegría confirmo mi asistencia a los XV años de ${nombreEvento}.
 
 ${mensajePersonal
-            ? `Mi mensaje: ${mensajePersonal}`
-            : "¡Nos vemos pronto!"}`;
+          ? `Mi mensaje: ${mensajePersonal}`
+          : "¡Nos vemos pronto!"}`;
       } else {
         textoWA = `Hola
 Soy ${nombreLimpio}.
@@ -140,8 +188,8 @@ Soy ${nombreLimpio}.
 Lamentablemente no podré acompañarlos en los XV años de ${nombreEvento}.
 
 ${mensajePersonal
-            ? `Mi mensaje: ${mensajePersonal}`
-            : "Les mando un abrazo con cariño."}`;
+          ? `Mi mensaje: ${mensajePersonal}`
+          : "Les mando un abrazo con cariño."}`;
       }
 
       const url = `https://wa.me/${telefono}?text=${encodeURIComponent(textoWA)}`;
@@ -153,14 +201,20 @@ ${mensajePersonal
       showFinal(nombreLimpio);
     }
 
+    // ==========================================
     // EVENTO DEL BOTÓN
+    // ==========================================
+
     btnEnviar?.addEventListener("click", (e) => {
       e.preventDefault();
       enviarWhatsApp();
     });
   }
 
+  // ==========================================
   // ESPERAR A QUE SE CARGUE EL JSON
+  // ==========================================
+
   document.addEventListener("event:data:ready", initRSVP);
 
   if (window.__EVENT_DATA__) {
